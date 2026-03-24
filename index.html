@@ -241,8 +241,12 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     if (response.ok) {
       status.style.display = 'block';
       status.style.color = '#4ade80';
-      status.textContent = 'Message sent — thank you! I\'ll get back to you soon.';
+      status.textContent = 'Thank you for reaching out! I received your message and will respond within 24–48 hours. In the meantime, feel free to explore my work at github.com/AnelHenning2-collab';
       form.reset();
+      // Show additional guidance
+      setTimeout(function() {
+        status.textContent += ' Check your email — you may receive a confirmation from Formspree.';
+      }, 2000);
     } else {
       return response.json().then(function(data) {
         throw new Error(data.errors ? data.errors.map(function(err) { return err.message; }).join(', ') : 'Submission failed');
