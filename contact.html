@@ -132,47 +132,25 @@
       <h2>Contact form</h2>
       <p>Use this form to get in touch or tell me how you’d like to be involved.</p>
 
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <label class="label">
-          Name
-        </label><br />
-        <input type="text" name="name" required /><br /><br />
+      <form id="contact-form">
+        <label class="label">Name</label><br />
+        <input type="text" name="name" id="cf-name" required /><br /><br />
 
-        <label class="label">
-          Email
-        </label><br />
-        <input type="email" name="email" required /><br /><br />
+        <label class="label">Email</label><br />
+        <input type="email" name="email" id="cf-email" required /><br /><br />
 
-        <label class="label">
-          I am interested in:
-        </label><br />
-        <label>
-          <input type="checkbox" name="role[]" value="newsletter" />
-          Newsletter
-        </label><br />
-        <label>
-          <input type="checkbox" name="role[]" value="sponsor" />
-          Sponsor
-        </label><br />
-        <label>
-          <input type="checkbox" name="role[]" value="partner" />
-          Partner / collaborator
-        </label><br />
-        <label>
-          <input type="checkbox" name="role[]" value="client" />
-          Client for services
-        </label><br />
-        <label>
-          <input type="checkbox" name="role[]" value="teacher" />
-          Teacher / mentor / professor
-        </label><br /><br />
+        <label class="label">I am interested in:</label><br />
+        <label><input type="checkbox" name="role" value="Newsletter" /> Newsletter</label><br />
+        <label><input type="checkbox" name="role" value="Sponsor" /> Sponsor</label><br />
+        <label><input type="checkbox" name="role" value="Partner / Collaborator" /> Partner / collaborator</label><br />
+        <label><input type="checkbox" name="role" value="Client for services" /> Client for services</label><br />
+        <label><input type="checkbox" name="role" value="Teacher / Mentor / Professor" /> Teacher / mentor / professor</label><br /><br />
 
-        <label class="label">
-          Message
-        </label><br />
-        <textarea name="message" rows="4" required></textarea><br /><br />
+        <label class="label">Message</label><br />
+        <textarea name="message" id="cf-message" rows="4" required></textarea><br /><br />
 
-        <button type="submit">Send message</button>
+        <button type="submit" id="cf-btn">Send message</button>
+        <p id="cf-status" style="margin-top:0.75rem; font-size:0.9rem; display:none;"></p>
       </form>
     </div>
     <!-- END NEW FORM CARD -->
@@ -244,5 +222,39 @@
       </a>
     </p>
   </main>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  var name = document.getElementById('cf-name').value.trim();
+  var email = document.getElementById('cf-email').value.trim();
+  var message = document.getElementById('cf-message').value.trim();
+
+  // Collect checked roles
+  var roles = [];
+  document.querySelectorAll('input[name="role"]:checked').forEach(function(cb) {
+    roles.push(cb.value);
+  });
+
+  var subject = 'Contact Hub — ' + name + (roles.length ? ' (' + roles.join(', ') + ')' : '');
+  var body = 'Name: ' + name + '\n'
+           + 'Email: ' + email + '\n'
+           + 'Interested in: ' + (roles.length ? roles.join(', ') : 'Not specified') + '\n\n'
+           + 'Message:\n' + message;
+
+  var mailto = 'mailto:anel.henning165@gmail.com'
+             + '?subject=' + encodeURIComponent(subject)
+             + '&body=' + encodeURIComponent(body)
+             + '&reply-to=' + encodeURIComponent(email);
+
+  window.location.href = mailto;
+
+  // Show confirmation
+  var status = document.getElementById('cf-status');
+  status.style.display = 'block';
+  status.style.color = '#4ade80';
+  status.textContent = 'Your email client should open now — send the pre-filled message to complete. If it did not open, email anel.henning165@gmail.com directly.';
+});
+</script>
 </body>
 </html>
