@@ -72,6 +72,32 @@
       font-size: 0.8rem;
       color: #8f96c2;
     }
+    input, textarea, button {
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+    input, textarea {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: 0.4rem 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #343c66;
+      background: #0b1020;
+      color: #f5f7ff;
+    }
+    button {
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      background: #ffcc4d;
+      color: #141a33;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover {
+      filter: brightness(0.95);
+    }
     @media (max-width: 600px) {
       .wrap {
         padding: 1.75rem 1.25rem 2.5rem;
@@ -90,9 +116,9 @@
       <h2>General contact</h2>
       <p>
         For questions, feedback, or interview requests, email:
-        <br />
+        <br /><br />
         <span class="label">Email:</span>
-        <a href="mailto:YOUR.EMAIL@EXAMPLE.COM">anel.henning165@gmail.com</a>
+        <a href="mailto:anel.henning165@gmail.com">anel.henning165@gmail.com</a>
       </p>
       <p class="pill-row">
         <span class="pill">questions</span>
@@ -100,6 +126,56 @@
         <span class="pill">student inquiries</span>
       </p>
     </div>
+
+    <!-- NEW FORM CARD -->
+    <div class="card">
+      <h2>Contact form</h2>
+      <p>Use this form to get in touch or tell me how you’d like to be involved.</p>
+
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label class="label">
+          Name
+        </label><br />
+        <input type="text" name="name" required /><br /><br />
+
+        <label class="label">
+          Email
+        </label><br />
+        <input type="email" name="email" required /><br /><br />
+
+        <label class="label">
+          I am interested in:
+        </label><br />
+        <label>
+          <input type="checkbox" name="role[]" value="newsletter" />
+          Newsletter
+        </label><br />
+        <label>
+          <input type="checkbox" name="role[]" value="sponsor" />
+          Sponsor
+        </label><br />
+        <label>
+          <input type="checkbox" name="role[]" value="partner" />
+          Partner / collaborator
+        </label><br />
+        <label>
+          <input type="checkbox" name="role[]" value="client" />
+          Client for services
+        </label><br />
+        <label>
+          <input type="checkbox" name="role[]" value="teacher" />
+          Teacher / mentor / professor
+        </label><br /><br />
+
+        <label class="label">
+          Message
+        </label><br />
+        <textarea name="message" rows="4" required></textarea><br /><br />
+
+        <button type="submit">Send message</button>
+      </form>
+    </div>
+    <!-- END NEW FORM CARD -->
 
     <div class="card">
       <h2>Newsletter</h2>
@@ -123,12 +199,12 @@
         If you’d like to support my open‑source teaching work (Logical Learning) or explore partnerships, you can:
       </p>
       <p>
-        • Use the <strong>Sponsor</strong> button on my GitHub profile:<br />
+        • Use the <strong>Sponsor</strong> button on my GitHub profile:<br /><br />
         <a href="https://github.com/AnelHenning2-collab" target="_blank">
           github.com/AnelHenning2-collab
         </a>
-        <br />
-        • Or support my open‑source teaching fund:<br />
+        <br /><br />
+        • Or support my open‑source teaching fund:<br /><br />
         <a href="https://www.gofundme.com/your-campaign-slug" target="_blank">
           GoFundMe – Open‑Source Teaching Projects
         </a>
@@ -146,8 +222,8 @@
         I’m especially interested in collaborating with professors, teachers, mentors, and engineers who want to:
       </p>
       <p>
-        • Co‑design labs or curriculum for Security+ and beginner‑friendly cyber/ML<br />
-        • Review or pilot Logical Learning materials with students<br />
+        • Co‑design labs or curriculum for Security+ and beginner‑friendly cyber/ML<br /><br />
+        • Review or pilot Logical Learning materials with students<br /><br />
         • Explore ML‑driven cybersecurity and autonomous retail concepts (GlideCart™)
       </p>
       <p>
