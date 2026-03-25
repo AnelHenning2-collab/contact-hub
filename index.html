@@ -118,7 +118,7 @@
         For questions, feedback, or interview requests, email:
         <br /><br />
         <span class="label">Email:</span>
-        <a href="mailto:anel.henning165@gmail.com">anel.henning165@gmail.com</a>
+        Use the contact form below to reach me.
       </p>
       <p class="pill-row">
         <span class="pill">questions</span>
@@ -247,7 +247,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   }).catch(function(err) {
     status.style.display = 'block';
     status.style.color = '#f87171';
-    status.textContent = 'Something went wrong: ' + err.message + '. You can email anel.henning165@gmail.com directly.';
+    status.textContent = 'Something went wrong: ' + err.message + '. Please try again later or reach out via GitHub.';
   }).finally(function() {
     btn.disabled = false;
     btn.textContent = 'Send message';
