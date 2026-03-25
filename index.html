@@ -132,7 +132,12 @@
       <h2>Contact form</h2>
       <p>Use this form to get in touch or tell me how you’d like to be involved.</p>
 
-      <form id="contact-form" action="https://formspree.io/f/mwvwevkl" method="POST">
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="b4c1a5cc-7041-4bb8-804a-ad0aab863b4f">
+        <input type="hidden" name="subject" value="New Contact Hub Submission — Logika Coders">
+        <input type="hidden" name="from_name" value="Logika Coders Contact Hub">
+        <input type="hidden" name="autoresponse" value="Thank you for reaching out to Logika Coders! I received your message and will respond within 24–48 hours. In the meantime, explore my work at https://github.com/AnelHenning2-collab — Anél Henning, Tampa FL">
+        <input type="hidden" name="redirect" value="https://anelhenning2-collab.github.io/contact-hub/thank-you.html">
         <label class="label">Name</label><br />
         <input type="text" name="name" id="cf-name" required /><br /><br />
 
